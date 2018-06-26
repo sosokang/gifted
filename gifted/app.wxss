@@ -1,0 +1,47 @@
+/**app.wxss**/
+page{
+  color:#333333;
+  font-family: PingFangSC;
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+} 
+.main{
+  width:100%;
+  overflow-x: hidden;
+  padding:0;
+  margin:0;
+  font-size: 28rpx;
+} 
+view{
+  box-sizing: border-box;
+}
+
+button::after{
+  border: none;
+}
+::-webkit-scrollbar{
+  width:0;
+  height:0;
+  color:transparent;
+}
+.lf{
+  float:left;
+}
+.rt{
+  float:right;
+}
+.clear:after{
+  display: block;
+  content:"";
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.center{
+  text-align: center;
+}

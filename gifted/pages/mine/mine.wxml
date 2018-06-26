@@ -1,0 +1,115 @@
+<!--pages/mine/mine.wxml-->
+<import src="../../templates/template.wxml"/>
+<view class="main" style="{{'height:'+screenHeight+'px'}}">
+
+
+    <view class="header">
+
+        <view class="lf">
+            <open-data  type="userAvatarUrl"  class="avatar"></open-data>
+        </view>
+        <open-data  type="userNickName" class="lf uname"></open-data>
+        <button class="rt" wx:if="{{!gift.signIn}}" bindtap="signIn">签到领取礼物</button>
+        <button class="rt" wx:if="{{gift.signIn}}">今日已签到</button>
+        
+    </view>
+
+
+    <view class="content">
+
+        <view class="clear">
+            <view class="lf {{currentIndex==0?'current':''}}" bindtap="changeView" data-idx="0">收到的</view>
+            <view class="lf {{currentIndex==1?'current':''}}" bindtap="changeView" data-idx="1">送出的</view>
+        </view>
+
+        <scroll-view class="receive" wx:if="{{currentIndex==0}}" style="height:{{screenHeight*2-340}}rpx" scroll-y="true" bindscrolltoupper='lastPage' bindscrolltolower='nextPage' id="receive">
+
+            <view wx:if="{{user.receive.length==0}}" class="empty">
+                <image src="../../images/girl.png"></image>
+                <text class="center">礼物空空，还未收到任何礼物哦~</text> 
+            </view>
+
+            <view wx:for="{{user.receive}}" wx:key="unique" wx:for-index="idx" data-index="{{idx}}" data-from="receive" class="itemView" id='{{item.id}}' style="width:{{screenWidth*item.num}}px;top:{{idx*180}}rpx;left:{{item.left}}px" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:if="{{item.id}}">
+                    <form report-submit bindsubmit="formSubmit" id='{{item.id}}' data-index="{{idx}}" data-from="receive">
+                    <button class="formBtn" style="width:{{screenWidth}}px" formType="submit"></button>
+                    </form>
+                    <image src="{{item.gift_img}}" class="lf"></image>
+
+                    <view class="lf son2">
+                        <text class="title">{{item.gift_name}}</text>
+                        <text>\n{{item.create_time}}</text>
+                    </view>
+
+                    <view class="son4 rt" wx:if="{{!item.confirm}}" catchtap='confirmEvent' style="width:{{screenWidth * (item.num - 1)}}px" data-index="{{idx}}" data-from="receive">删除</view>
+                    <view class="son4 rt" wx:if="{{item.confirm}}" style="width:{{screenWidth*(item.num-1)}}px" catchtap='deleteEvent' data-index="{{idx}}" data-from="receive">确认删除</view>
+ 
+                    <view class="son3 rt">
+                        <text class="title">￥{{item.total_price}}</text>
+                        <text>{{item.status}}</text>
+                    </view>
+
+            </view>
+            <view class="notice center" style="width:{{screenWidth}}px;top:{{user.receive.length*180}}rpx" wx:if="{{showNotice1}}">阿哦，没有更多数据了╮(╯▽╰)╭</view>
+        </scroll-view>
+
+        <scroll-view class="give" wx:if="{{currentIndex==1}}" style="height:{{screenHeight*2-340}}rpx" scroll-y="true" bindscrolltoupper='lastPage' bindscrolltolower='nextPage' id="give">
+            <view wx:for="{{user.give}}" wx:key="unique" wx:for-index="idx" data-index="{{idx}}" data-from="give" class="itemView" id='{{item.id}}' style="width:{{screenWidth*item.num}}px;top:{{idx*180}}rpx;left:{{item.left}}px" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:if="{{item.id}}">
+                    <form report-submit id='{{item.id}}' bindsubmit="formSubmit" data-index="{{idx}}" data-from="give">
+                    <button class="formBtn" style="width:{{screenWidth}}px" formType="submit"></button>
+                    </form>
+                    <image src="{{item.gift_img}}" class="lf"></image>
+
+                    <view class="lf son2">
+                        <text class="title">{{item.gift_name}}</text>
+                        <text>\n{{item.create_time}}</text>
+                    </view>
+
+                    <view class="son4 rt" wx:if="{{!item.confirm}}" catchtap='confirmEvent' style="width:{{screenWidth * (item.num - 1)}}px" data-index="{{idx}}" data-from="give">删除</view>
+                    <view class="son4 rt" wx:if="{{item.confirm}}" style="width:{{screenWidth*(item.num-1)}}px" catchtap='deleteEvent' data-index="{{idx}}" data-from="give">确认删除</view>
+                    <view class="son3 rt">
+                        <text class="title">￥{{item.total_price}}</text>
+                        <text>{{item.status}}</text>
+                    </view>
+
+            </view>
+            <view class="notice center" style="width:{{screenWidth}}px;top:{{user.give.length*180}}rpx" wx:if="{{showNotice2}}">阿哦，没有更多数据了╮(╯▽╰)╭</view>
+        </scroll-view>
+
+    </view>
+
+
+    <view class="shadow" wx:if="{{showShadow}}" bindtap='close'>
+
+        <view catchtap='foo'>
+
+            <view class="date">
+                <text>{{date}}</text>
+            </view>
+
+            <view>
+
+                <view class="lf">
+                    <text>今日礼物</text>
+                    <text>\n《{{gift.gift_name}}》</text>
+                </view>
+
+                <button class="rt" id='{{gift.id}}' bindtap="toLetter">送出</button>
+            </view>
+
+            <image src="{{gift.gift_img}}"></image>
+
+        </view>
+
+    </view>
+    <template is="tabbar" data="{{...tem}}"></template>  
+
+</view>
+<view class='toast' catchtap='hideAuthorize' wx-if="{{authorizeBoard}}">
+  <view class='authorize'>  
+    <image class='bj' src='../../images/bj@3x.png'></image>
+    <view class='tip center'>用心礼物提示您</view>
+    <view class='tipCon center'>此处需要您授权</view>
+    <!-- <button>取消</button> -->
+    <button class='confim' open-type='getUserInfo' lang="zh_CN" bindgetuserinfo="onGetUserInfo" catchtap='hideAuthorize'>我知道了</button>
+  </view>
+</view>

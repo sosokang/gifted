@@ -1,0 +1,313 @@
+page{
+    color:#D84E43;
+}
+.top-pic{
+    width:100%;
+    height:40vh;
+    position: relative;
+}
+.top-pic image{
+    display: block;
+    width:100%;
+    height: 100%;
+}
+.header{
+    font-weight: 900;
+    line-height: 9.1164vh;
+    background:rgb(255,250,250);
+}
+.title{
+    margin:0 16rpx 0 34rpx;
+    font-size: 36rpx;
+    color:#333;
+}
+.price{
+    color:#FF5F68;
+}
+.header .rt{
+    margin-right:34rpx;
+}
+.main{
+    font-size: 28rpx;
+}
+.main-h{
+    height:60vh;
+    overflow: hidden;
+}
+.header .rt text{
+    text-align: center;
+    width:64rpx;
+    height:64rpx;
+    line-height: 64rpx;
+    border-radius:4px;
+    font-size: 28rpx;
+    border:1px solid rgba(0,0,0,0.15);
+}
+.header .rt text:nth-child(2){
+    margin:0 16rpx;
+    color:#fff;
+    background: #D84E43;
+}
+.header .counter-box text{
+    display: inline-block;
+}
+.header .counter-box .num{
+    border:none;
+}
+.body{
+    height: 27.208976vh;
+    width:100%;
+    overflow: hidden;
+    position: relative;
+    padding:0 34rpx;
+    line-height: 6.5vh;
+    position: relative;
+    /* z-index: -1; */
+    background:rgb(255,250,250);
+}
+.body .tosome image{
+    margin-top:2vh;
+    height: 2.524544vh;
+    width: 6.4516129vh;
+}
+.body .tosome image,.body .from image{
+    margin-right:18rpx;
+}
+.body .tosome input {
+    /* background:yellow; */
+    height: 100%;
+}
+.body .content{
+    overflow: hidden;
+    position: relative;
+    height: 19.5vh;
+}
+.body .textarea1{
+    width:100%;
+    height: 100%;
+    /* background:red; */
+}
+/* 文字域是否显示 */
+.body .textareaShow0{
+    display: none;
+}
+.body textarea{
+    width:100%;
+    height: 100%;
+    display: block;
+    overflow: hidden;
+    font-size: 14px;
+    overflow: hidden;
+}
+.body .tosome,.body .from{
+    height: 6.31136vh;
+    position: relative;
+}
+.body .tosome::before,.body .line{
+    content:'';
+    display:block;
+    width:100%;
+    position: absolute;
+    bottom:3rpx;
+    left: 0;
+    height: 0;
+    border-bottom:1rpx dashed rgba(255, 116, 132, 0.47);
+}
+.body .first-l{
+    top:6.4vh;
+}
+.body .sec-l{
+    top:12.8vh;
+}
+.body .third-l{
+    top:19.2vh;
+}
+/* placeholder */
+.placeholder{
+    position: absolute;
+    top:0;
+    left: 0;
+    /* z-index: -1; */
+    color:#F99992;
+    /* display: none; */
+}
+.body .from{
+    /* background:green; */
+    margin-top:1.4vh;
+}
+.body .from image{
+    margin-top:1.3vh;
+    width:5.8906vh;
+    height:3.6465638vh;
+}
+/* 底部 */
+.footer{
+    font-family:PingFangSC-Medium;
+    /* position: relative; */
+    /* z-index: 0; */
+}
+.footer view,.footer button{
+    width:670rpx;
+    height:6.59186536vh;
+    line-height: 6.59186536vh;
+    text-align: center;
+    margin:0 auto;
+    border-radius:20rpx;
+    font-size: 36rpx;
+    border:1px solid rgba(216,78,67,1);
+    color:#D84E43;
+    background:#fff;
+}
+.footer .to-pay{
+    background:rgba(216,78,67,1);
+    color:#fff;
+    margin: 3.6465638vh auto 2.1037868vh ;
+}
+/* 已购买的状态 */
+.state2 button{
+    color:#fff;
+    background: rgba(216,78,67,1);
+}
+.saled{
+    font-size: 36rpx;
+    padding-right:20rpx;
+}
+.saled-time{
+    height:17px;
+    text-align: right;
+    font-size:28rpx;
+    font-family:HelveticaNeue-Light;
+    color:rgb(249,153,146);
+    line-height:17px;
+    margin:0 0 7.49625187vh;
+    padding:0 34rpx;
+    background:rgb(255,250,250);
+}
+/* 打开礼物 */
+.state3 view{
+    color:#fff;
+    background: rgba(216,78,67,1);
+}
+/* 已打开礼物 */
+.footer .accepted{
+    color:#fff;
+    margin:5.69715vh auto 1.5vh;
+    background:rgb(216,78,67);
+}
+/* 已送出 */
+.footer .sented{
+    width:300rpx;
+    height: 218rpx;
+    border:none;
+    margin:-18vh auto 0;
+}
+.sented image{
+    width:100%;
+    height: 100%;
+    position: relative;
+}
+/* 商品已过期 */
+.footer .time-out{
+    background:rgb(221,221,221);
+    color:#666;
+    border-color:transparent;
+}
+/* 平台费用说明 */
+.cost{
+    text-align: center;
+    font-size:24rpx;
+    font-family:PingFangSC-Regular;
+    color:rgb(187,187,187);
+    line-height:17px;
+    position: absolute;
+    width:100vw;
+    bottom:30rpx;
+}
+/* 用户授权 */
+.toast{
+    width:100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: rgba(0,0,0,.5);
+    position: absolute;
+    top:0;
+    left:0;
+    transition: all ease .3s;
+}
+.authorize{
+    position: fixed;
+    z-index: 9;
+    /* display: none; */
+    width:600rpx;
+    height: 332rpx;
+    top:0;
+    left: 0;
+    bottom:0;
+    right:0;
+    margin:auto;
+    border-radius: 10rpx;
+}
+.toast image{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index: -1;
+}
+.toast .tip{
+    font-size: 24rpx;
+    font-family:PingFangSC-Regular;
+    color:rgb(102,102,102);
+    line-height:48rpx;
+    margin:34rpx 0 10rpx;
+}
+.toast .tipCon{
+    font-size:32rpx;
+    font-family:PingFangSC-Regular;
+    color:rgb(51,51,51);
+    line-height:48rpx;
+}
+.toast .confim{
+    font-size:32rpx;
+    font-family:PingFangSC-Medium;
+    color:rgb(216,78,67);
+    line-height:90rpx;
+    margin-top:30rpx;
+    background:transparent;
+}
+/* 数字动画 */
+.ani-counter{
+    position: absolute;
+    right: 0;
+    top:0;
+    color: #000;
+    font-size: 180rpx;
+    font-weight: 900;
+    width:400rpx;
+    height:400rpx;
+    text-align: center;
+    line-height: 280rpx;
+    transform-origin:center;
+    background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(#FFDD51), to(#FF5D00));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke:3rpx #EC540F;
+    transform: scale(0.3)
+}
+.ani-active{
+    animation: sizeUp .5s ease-in .1s infinite;
+}
+@keyframes sizeUp {
+    from{
+        transform: scale(0.3)
+    }
+    to{
+        transform: scale(1); 
+    }
+}
+.downCvs{
+  position: fixed;
+  left:-9999px;
+  top:-9999px;
+}

@@ -1,0 +1,10 @@
+<template name="tabbar">
+   <view class='foot'>
+    <view class="left {{active1}}" bindtap='left'>
+      <image src='../../images/icon_gift@2x.png' class='img'></image>推荐礼物
+    </view>
+    <view class="right {{active2}}" bindtap='right'>
+      <image src='../../images/icon_my@2x.png' class='img'></image>我的 
+    </view>
+  </view>  
+</template>

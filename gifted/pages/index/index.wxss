@@ -1,0 +1,180 @@
+/**index.wxss**/
+@import "../../templates/template.wxss";
+/* 头部开始  */
+
+page {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.containerOne {
+  padding-bottom: 108rpx;
+}
+
+.header {
+  width: 100%;
+  height: 198rpx;
+  position: relative;
+}
+
+.top {
+  width: 100%;
+  height: 198rpx;
+}
+
+.top-txt {
+  position: absolute;
+  top: 38rpx;
+  left: 50rpx;
+  font-size: 44rpx;
+  font-family: PingFangSC-Medium;
+  color: #fff8d4;
+}
+
+.top-stxt {
+  position: absolute;
+  top: 110rpx;
+  left: 50rpx;
+  font-size: 30rpx;
+  font-family: PingFangSC-Regular;
+  color: #fff8d4;
+}
+
+.title {
+  width: 100%;
+  height: 72rpx;
+  background: #f4f4f4;
+  font-size: 36rpx;
+  font-family: PingFangSC-Medium;
+  color: #333;
+  font-weight: 600;
+  line-height: 72rpx;
+  padding-left: 32rpx;
+}
+
+/* 头部结束  */
+
+/*内容开始  */
+
+
+.content {
+  width: 100%;
+  height: 180rpx;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  position: relative;
+}
+
+.formBtn{
+  width: 100vw!important;
+  height:180rpx;
+  position: absolute;
+  left:0;
+  top:0;
+  background: transparent;
+  z-index: 1;
+}
+.gift-header image {
+  width: 164rpx;
+  height: 144rpx;
+  margin: 20rpx 20rpx 20rpx 32rpx;
+}
+
+.gift-name {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: 600;
+  margin-top: 36rpx;
+}
+
+.gift-des {
+  width: 320rpx;
+  font-size: 32rpx;
+  padding-top: 30rpx;
+  color: #888;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.gift-up {
+  margin-top: 36rpx;
+  margin-left: 60rpx;
+  margin: auto auto;
+}
+
+.gift-price {
+  font-size: 36rpx;
+  color: #333;
+ font-weight: bold;
+}
+
+.price {
+  font-size: 36rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.gift-click {
+  width: 120rpx;
+  height: 60rpx;
+  background: #d84e43;
+  border-radius: 6px;
+  font-size: 26rpx;
+  font-family: PingFangSC-Medium;
+  color: #fff;
+  line-height: 60rpx;
+  text-align: center;
+  margin-top: 12rpx;
+}
+
+/* .contentOne {
+  width: 100%;
+  height: 180rpx;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+}
+
+.contentOne .gift-des {
+  width: 320rpx;
+  font-size: 32rpx;
+  padding-top: 8rpx;
+  color: #888;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.contentOne .gift-click {
+  width: 120rpx;
+  height: 60rpx;
+  background: #d84e43;
+  border-radius: 6px;
+  font-size: 26rpx;
+  font-family: PingFangSC-Medium;
+  color: #fff;
+  line-height: 60rpx;
+  text-align: center;
+  margin-top: 72rpx;
+  margin-left: 60rpx;
+  margin: auto auto;
+} */
+
+/*内容结束  */
+
+.click {
+  position: fixed;
+  bottom: 108rpx;
+  width: 100%;
+  height: 80rpx;
+  background: #fff5f5;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 80rpx;
+  color: #d84e43;
+  z-index:10;
+}
+

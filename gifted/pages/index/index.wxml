@@ -1,0 +1,39 @@
+<!--index.wxml-->
+<import src="../../templates/template.wxml" />
+<view class="containerOne">
+  <!--头部开始  -->
+  <!-- <scroll-view class="receive"  style="height:{{screenHeight*2-232}}rpx" scroll-y="true" >   -->
+  <view class='header'>
+    <view class='top-img'>
+      <image src='../../images/top_bj@2x.png' class='top'></image>
+      <view class='top-txt'>微信红包新玩法</view>
+      <view class='top-stxt'>挑选礼物·发给好友·领取立即到账</view>
+    </view>
+  </view>
+  <view class='title'>推荐礼物</view>
+  <!--头部结束  --> 
+  <!--内容开始  -->
+  <view class='content' wx:for="{{gift}}" wx:key="unique" data-id='{{item.id}}' bindtap='giftGift' data-type='{{item.type}}' data-name='{{item.name}}' data-price='{{item.price}}' data-gift_pic='{{item.gift_pic}}'>
+    <form report-submit bindsubmit="formSubmit" >
+      <button class="formBtn" style="width:{{screenWidth}}px" formType="submit"></button>
+    </form>
+    <view class='gift-header'>
+      <image src='{{item.small_gift_pic}}'></image>
+    </view>
+    <view class='gift-con'>
+      <view class='gift-name'>{{item.name}}</view>
+      <view class='gift-des'>{{item.description}}</view>
+    </view>
+    <view class='gift-up'>
+      <view class='gift-price' wx:if="{{item.type==1}}">￥{{item.price}}</view>
+      <view class='price' wx:else>免费</view>
+      <view class='gift-click'>送出</view>
+    </view>
+  </view>
+  <!--内容结束  -->
+  <!-- </scroll-view>   -->
+
+  <view class='click' catchtap="goSign" wx:if="{{!signIn}}">签到领取礼物</view>
+  <template is="tabbar" data="{{...tem}}"></template>
+
+</view>

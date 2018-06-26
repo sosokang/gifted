@@ -1,0 +1,90 @@
+<view>
+	<view class='top-pic'>
+    <view class='ani-counter {{aniActive?aniActive:""}}' wx-if="{{aniShow}}">X{{counter}}</view>
+    <image src="{{picSrc}}"></image>
+	</view>
+  <!--  主体  -->
+  <view class='main {{giftState !==4?"main-h":""}}'>
+    <view class='header clear' wx-if="{{giftState===1 || giftState===2 || giftState ===5}}">
+      <view class='lf title'>
+        {{title}}
+      </view>
+      <view class='lf price'>
+        {{price==0?"免费":('￥'+price)}}
+      </view>
+      <block wx-if='{{giftState===1}}'>
+        <view class='rt counter-box center'>
+          <text class='' bindtap='numDn' data-counter="{{counter}}">-</text>
+          <text class='num'>{{counter}}</text>
+          <text class='' bindtap='numUp' data-counter="{{counter}}">+</text>
+        </view>
+      </block>
+      <block wx-if='{{giftState===2}}'>
+        <view class='rt counter-box saled center'>
+          已购买
+        </view>
+      </block>
+    </view>
+    <view class='body'>
+      <!-- <view class='tosome clear'>
+        <image class='lf' src='../../images/TO_@3x.png'></image>
+        <input class='lf' maxlength='8'></input>
+      </view> -->
+      <view class='content'>
+        <text class='textarea1' decode="true" space="true" wx:if="{{(!textareaShow || giftState ===1 || (giftState===2 && price==0))?false:true}}">{{say}}</text>
+        <textarea class="textareaShow{{textareaShow}}" row="2" maxlength='68' wx-if='{{giftState === 1 || (giftState ===2 && price==0 )}}' bindinput='onSaying' bindblur='sayFinish' bindlinechange='sayEnter' bindfocus="onFocus" placeholder=''></textarea>  
+         <!-- <view class='placeholder' wx:if="{{textareaPlaceholder && (giftState ===1 || giftState ===2)?true:false}}">礼物虽小，情义千斤！</view> -->
+          <view class='placeholder' wx:if="{{(say || textareaPlaceholder)?false:true}}">我想对你说：礼物虽小，情义千斤！</view> 
+        <view class='line first-l'></view>
+        <view class='line sec-l'></view>
+        <view class='line third-l'></view>
+      </view>
+      <view class='from clear'>
+        <block wx:if="{{giftState===1 || giftState ===2}}">
+          <open-data class="rt" type="userNickName"></open-data>
+        </block>
+        <block wx:else>
+          <view class='rt'>{{uname}}</view>
+        </block>
+        <image class='rt' src='../../images/from_@3x.png'></image>
+      </view>
+    </view>
+      <!-- <canvas style="width:{{screenWidth}}px;height:405px" canvas-id="cvs" wx:if="{{giftState===4}}" bindtouchstart="downPic"></canvas>  -->
+      <canvas style="width:{{screenWidth}}px;height:465px" canvas-id="down" wx:if="{{giftState===4}}" class="downCvs"></canvas>  
+    <view class='saled-time' wx-if="{{giftState===2 || giftState===3 ||giftState===5 || giftState===6}}">{{saledTime}}</view>
+    <view class='footer state{{giftState}}'>
+      <block wx-if="{{giftState === 1}}">
+        <view class='to-pay' bindtap="toPay">付款</view>
+        <button class='to-ask' open-type="share" id='ask'>求礼物</button>
+      </block>
+      <block wx-if="{{giftState === 2}}">
+        <button class='to-share' bindtap="toShare" open-type="share">送出</button>
+      </block>
+      <block wx-if="{{giftState === 3}}">
+        <view class='to-share' bindtap="toReceive">领取{{price*counter?price*counter+'元':'礼物'}}</view>
+      </block>
+      <block wx-if="{{giftState === 4}}">
+        <view class='accepted'>已领取{{price*counter?price*counter+'元':''}}</view>
+        <view bindtap="toHome">我也要送礼物</view>
+      </block>
+      <block wx-if="{{giftState === 6}}">
+        <view class='to-share time-out'>已过期</view>
+      </block>
+      <view class='sented' wx-if="{{giftState ===5 }}">
+        <image src='../../images/icon_seal@3x.png'></image>
+      </view>
+    </view>
+  </view>
+  <!-- 平台费用说明  -->
+  <view wx-if="{{giftState ===3 || giftState === 6}}" class='cost'>微信平台将收取1%的手续费</view>
+  <!-- 显示请求信息  -->
+</view>
+<view class='toast' catchtap='hideAuthorize' wx-if="{{authorizeBoard}}">
+  <view class='authorize'>  
+    <image class='bj' src='../../images/bj@3x.png'></image>
+    <view class='tip center'>用心礼物提示您</view>
+    <view class='tipCon center'>此处需要您授权</view>
+    <!-- <button>取消</button> -->
+    <button class='confim' open-type='getUserInfo' lang="zh_CN" bindgetuserinfo="onGetUserInfo" catchtap='hideAuthorize'>我知道了</button>
+  </view>
+</view>
